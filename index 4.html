@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lab 4 - Country Capital Selector</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 60px;
+        background-color: #f4f6f8;
+    }
+
+    h2 {
+        color: #333;
+    }
+
+    select {
+        font-size: 18px;
+        padding: 6px 10px;
+        margin-right: 15px;
+    }
+
+    /* CSS for the capital text output */
+    #capital {
+        color: #d1004b;         /* font color */
+        font-weight: bold;      /* bold */
+        font-size: 24px;        /* font size */
+        font-family: 'Georgia', serif;
+    }
+</style>
+</head>
+<body>
+
+<h2>Select a Country to See its Capital</h2>
+
+<select id="countryList" onchange="showCapital()">
+    <option value="">-- Select a Country --</option>
+    <option value="New Delhi">India</option>
+    <option value="Washington D.C.">United States</option>
+    <option value="Tokyo">Japan</option>
+    <option value="Paris">France</option>
+    <option value="Canberra">Australia</option>
+</select>
+
+<span id="capital"></span>
+
+<script>
+    function showCapital() {
+        var select = document.getElementById("countryList");
+        var country = select.options[select.selectedIndex].text;
+        var capital = select.value;
+
+        var output = document.getElementById("capital");
+        if (capital === "") {
+            output.textContent = "";
+        } else {
+            output.textContent = "Capital of " + country + " is " + capital;
+        }
+    }
+</script>
+
+</body>
+</html>
